@@ -186,6 +186,22 @@ class XmlaOlap4jMember
             this,
             propertyValueMap);
     }
+    
+    public Object getPropertyValueByUniqueName(String propertyUniqueName) throws OlapException {
+
+        Map<Property, Object> propertyValueMap = getPropertyValueMap();
+        if (propertyUniqueName == null || propertyValueMap == null) {
+            return null;
+        }
+        Iterator<Property> keyIt = propertyValueMap.keySet().iterator();
+        while (keyIt.hasNext()) {
+            Property propertyValue = keyIt.next();
+            if (propertyUniqueName.equals(propertyValue.getUniqueName())) {
+                return getPropertyValue(propertyValue);
+            }
+        }
+        return null;
+    }
 
     /**
      * Helper method to retrieve the value of a property from a member.

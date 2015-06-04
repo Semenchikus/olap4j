@@ -250,6 +250,27 @@ public interface Member extends MetadataElement {
     String getPropertyFormattedValue(Property property) throws OlapException;
 
     /**
+     * Returns the value of a property with specified unique name.
+     *
+     * <p>Returns null if the property is not found by given unique name.</p>
+     *
+     * <p>Every member has certain system properties such as "name" and
+     * "caption" (the full list is described in the
+     * {@link org.olap4j.metadata.Property.StandardMemberProperty}
+     * enumeration), as well as extra properties defined for its Level
+     * (see {@link Level#getProperties()}).</p>
+     *
+     * @param propertyUniqueName unique name of the Property
+     *
+     * @return value of the given property
+     *
+     * @see #getPropertyFormattedValue(Property)
+     *
+     * @throws OlapException if database error occurs
+     */
+    public Object getPropertyValueByUniqueName(String propertyUniqueName) throws OlapException;
+    
+    /**
      * Sets a property of this member to a given value.
      *
      * <p>Every member has certain system properties such as "name" and

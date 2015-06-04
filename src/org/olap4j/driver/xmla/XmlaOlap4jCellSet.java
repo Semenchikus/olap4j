@@ -1541,6 +1541,10 @@ abstract class XmlaOlap4jCellSet implements CellSet {
         public String getPropertyFormattedValue(Property property) {
             return null;
         }
+        
+        public Object getPropertyValueByUniqueName(String propertyUniqueName) {
+            return null;
+        }
 
         public void setProperty(Property property, Object value)
         {

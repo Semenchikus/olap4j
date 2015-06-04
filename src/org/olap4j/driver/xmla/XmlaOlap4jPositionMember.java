@@ -171,6 +171,22 @@ class XmlaOlap4jPositionMember
         }
         return member.getPropertyFormattedValue(property);
     }
+        
+    public Object getPropertyValueByUniqueName(String propertyUniqueName) throws OlapException {
+
+        Map<Property, Object> propertyValueMap = getPropertyValueMap();
+        if (propertyUniqueName == null || propertyValueMap == null) {
+            return null;
+        }
+        Iterator<Property> keyIt = propertyValueMap.keySet().iterator();
+        while (keyIt.hasNext()) {
+            Property propertyValue = keyIt.next();
+            if (propertyUniqueName.equals(propertyValue.getUniqueName())) {
+                return getPropertyValue(propertyValue);
+            }
+        }
+        return null;
+    }
 
     public void setProperty(
         Property property,
