@@ -189,7 +189,6 @@ class XmlaOlap4jMember
     
     public Object getPropertyValueByUniqueName(String propertyUniqueName) throws OlapException {
 
-        Map<Property, Object> propertyValueMap = getPropertyValueMap();
         if (propertyUniqueName == null || propertyValueMap == null) {
             return null;
         }

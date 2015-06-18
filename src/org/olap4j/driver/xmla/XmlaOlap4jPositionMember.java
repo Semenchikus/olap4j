@@ -174,11 +174,10 @@ class XmlaOlap4jPositionMember
         
     public Object getPropertyValueByUniqueName(String propertyUniqueName) throws OlapException {
 
-        Map<Property, Object> propertyValueMap = getPropertyValueMap();
-        if (propertyUniqueName == null || propertyValueMap == null) {
+        if (propertyUniqueName == null || propertyValues == null) {
             return null;
         }
-        Iterator<Property> keyIt = propertyValueMap.keySet().iterator();
+        Iterator<Property> keyIt = propertyValues.keySet().iterator();
         while (keyIt.hasNext()) {
             Property propertyValue = keyIt.next();
             if (propertyUniqueName.equals(propertyValue.getUniqueName())) {
